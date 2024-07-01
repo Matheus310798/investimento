@@ -1,15 +1,15 @@
-package com.projetc.investimento.Model.DTO;
+package com.projetc.investimento.Exception;
 
 import org.springframework.http.HttpStatus;
 
-public class ErrorDTO {
+public class DefaultErrorDTO {
     private String message;
     private Integer status;
 
-    public ErrorDTO(String message){
+    public DefaultErrorDTO(String message){
         this.message = message;
     }
-    public ErrorDTO(String message, HttpStatus status){
+    public DefaultErrorDTO(String message, HttpStatus status){
         this.message = message;
         this.status = status.value();
     }
