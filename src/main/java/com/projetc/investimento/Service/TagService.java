@@ -64,8 +64,11 @@ public class TagService {
     }
 
     public void deleteTag(Long id){
-        Tag tagDelete = tagDao.findById(id).orElseThrow(() -> new NotFoundException(MessagesEnum.TAG_NOT_FOUND.getDescricao()));
-        tagDao.deleteById(tagDelete.getIdTicket());
+        tagDao.findById(id)
+                .map(tag -> {
+                    tagDao.deleteById(id);
+                    return Void.TYPE;
+                }).orElseThrow(() -> new NotFoundException(MessagesEnum.TAG_NOT_FOUND.getDescricao()));
     }
 
     private TagDTO searchTagGateway(String tag){
