@@ -5,8 +5,8 @@ import lombok.Getter;
 @Getter
 public enum MessagesEnum {
 
-    TAG_NOT_FOUND("Tag não encontrada."),
-    TAG_EXISTS("Tag já cadastrada.");
+    TAG_NOT_FOUND("Tag não encontrada. Informe outra."),
+    TAG_EXISTS("Tag existente.");
 
     private String descricao;
 
