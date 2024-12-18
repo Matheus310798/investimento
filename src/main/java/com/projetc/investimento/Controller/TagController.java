@@ -5,6 +5,8 @@ import com.projetc.investimento.Model.Response.TagResponse;
 import com.projetc.investimento.Model.Tag;
 import com.projetc.investimento.Service.TagService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,6 +35,10 @@ public class TagController {
         return tagService.findTag(id, update);}
 
     @Operation(description = "Deleta a tag pelo id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Deleta Tag com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Não existe Tag cadastrada com o ID informado")
+    })
     @DeleteMapping(value = "deletar/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteTag(@PathVariable("id") Long id){ tagService.deleteTag(id);}

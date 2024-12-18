@@ -2,6 +2,8 @@ package com.projetc.investimento.Exception;
 
 import org.springframework.http.HttpStatus;
 
+import java.util.List;
+
 public class DefaultErrorDTO {
     private String message;
     private Integer status;
